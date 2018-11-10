@@ -1,0 +1,21 @@
+<IfModule mod_env.c>
+   # Set an development enviroment for codeigniter
+   SetEnv CI_ENV development
+
+   # Set PHP Time Zone:
+   SetEnv TZ America/Chihuahua
+</IfModule>
+
+<IfModule mod_rewrite.c>
+   RewriteEngine on
+   
+   RewriteBase /
+
+   RedirectMatch 403 ^/(system).*$
+
+   RewriteCond %{REQUEST_FILENAME} !-f
+   RewriteCond %{REQUEST_FILENAME} !-d
+
+	# $config[index-page] set to '' by this
+	RewriteRule ^(.*)$ index.php?/$1 [L]
+</IfModule>
