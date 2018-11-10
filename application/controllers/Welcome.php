@@ -20,6 +20,14 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
+		$this->load->library('rsatool');
+		$rsat = new RSATool();
+		
+		$c = $rsat->crypt("Testing");
+		$d = $rsat->decrypt($c);
+
+		var_dump($c, $d);
+
 		$this->load->view('welcome_message');
 	}
 }
