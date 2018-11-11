@@ -19,3 +19,6 @@ application/keys/*
 # Composer
 composer.phar
 /vendor/
+
+# RSA Keys
+/keys/

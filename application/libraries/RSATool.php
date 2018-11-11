@@ -1,9 +1,10 @@
 <?php
 use phpseclib\Crypt\RSA;
+define('CRYPT_RSA_PKCS15_COMPAT', true);
 
 class RSATool {
    // PLEASE USE A SAFER DIRECTORY. THIS IS ONLY FOR DEMOSTRATION PURPOSES
-   public $keyspath = "application/keys/";
+   public $keyspath = "keys/";
    // RSA manager for the proyect
    private $rsa;
 
@@ -12,20 +13,19 @@ class RSATool {
 
    public function __construct(){
       $this->rsa = new RSA();
-      // Need to install XML, so not
-      // $this->rsa->setPrivateKeyFormat(RSA::PRIVATE_FORMAT_XML);
-      // $this->rsa->setPublicKeyFormat(RSA::PUBLIC_FORMAT_XML);
    }
 
    public function crypt($text)
    {
       $this->keys("public");
+      $this->rsa->setEncryptionMode(RSA::ENCRYPTION_PKCS1);
       return $this->rsa->encrypt($text);
    }
 
    public function decrypt($text)
    {
       $this->keys("private");
+      $this->rsa->setEncryptionMode(RSA::ENCRYPTION_PKCS1);
       return $this->rsa->decrypt($text);
    }
    
@@ -39,7 +39,6 @@ class RSATool {
          file_put_contents( $this->keyspath . "privatekey", $keys['privatekey']);
          file_put_contents( $this->keyspath . "publickey", $keys['publickey']);
       }
-      
       switch($type){
          case "public":
             $key = file_get_contents( $this->keyspath . "publickey" );

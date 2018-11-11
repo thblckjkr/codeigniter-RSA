@@ -1,0 +1,38 @@
+@primary-color: rgb(98,173,243);
+@primary-color-darker: darken(@primary-color, 15);
+@primary-color-lighter: lighten(@primary-color,15);
+
+@highlight-color: rgb(98,243,168);
+
+@gray-color: rgb(83, 86, 90);
+@white-color: rgb(255,255,255);
+
+@footer-height: 60px;
+/* Show it is fixed to the top */
+html {
+   position: relative;
+   min-height: 100%;
+}
+
+body {
+   min-height: 100%;
+   padding-top: 4.5rem;
+   margin-bottom: @footer-height;
+}
+
+footer {
+   position: absolute;
+   bottom: 0;
+   width: 100%;
+   height: @footer-height;
+   line-height: @footer-height; /* Vertically center the text there */
+}
+
+.row-topped{
+   margin-top: 1rem;
+}
+
+.dead-link{
+   max-height: 200px;
+   max-width: 100%;
+}
