@@ -1,4 +1,10 @@
 <div class="container">
+    <?php if(! is_null($msg)): ?>
+        <div class="alert alert-warning" role="alert">
+            <?=$msg?>
+        </div>
+    <?php endif;?>
+
     <div class="row justify-content-center">
         <h3>Catalogo de llaves de software</h3>
     </div>
@@ -9,7 +15,7 @@
 <script type="text/javascript">
 $(document).ready(function(){
     $("#catalog").jsGrid({
-        height: "auto",
+        height: "400px",
         width: "100%",
 
         autoload: true,
@@ -27,11 +33,11 @@ $(document).ready(function(){
         fields: 
         [
             { name: "soft_id",visible: false},
-            { name: "soft_name", title: "Software",  type: "text"},
-            { name: "soft_description", title: "Descripcion", type: "textarea"},
-            { name: "soft_pid", title: "Serial", type: "text"},
-            { name: "soft_key", title: "Llave", type: "text"},
-            { name: "soft_notes", title: "Notas", type: "textarea"},
+            { name: "soft_name", title: "Software",  type: "text" , validate: "required"},
+            { name: "soft_description", title: "Descripcion", type: "textarea" , validate: "required"},
+            { name: "soft_pid", title: "Asset Tag", type: "text" , validate: "required"},
+            { name: "soft_key", title: "Llave", type: "text" , validate: "required"},
+            { name: "soft_notes", title: "Notas", type: "textarea" , validate: "required"},
             { type: "control" }
         ]
     });

@@ -12,7 +12,8 @@ class Index extends CI_Controller {
 			redirect('account');
 		}
 		$data = array(
-			'title' => "Catalogo de claves de software"
+			'title' => "Catalogo de claves de software",
+			'msg' => $this->session->flashdata('process_result'),
 		);
 
 		$this->load->template('index/main', $data);

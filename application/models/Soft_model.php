@@ -15,10 +15,6 @@ class Soft_model extends CI_Model{
       $this->load->library('rsatool');
 		$rsat = new RSATool();
 
-      // So much work, but decrypt each thing in the database
-      // $data = base64_decode($info);
-      // $decrypted = $rsat->decrypt( $data );
-
       if($id !== null)
          $this->db->where('soft_id', $this->input->post('soft_id')); // TODO
       

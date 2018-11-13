@@ -20,6 +20,13 @@ class Index extends CI_Controller {
 
 		$this->load->template('account/main', $data);
 	}
+
+	public function delete(){
+		$this->load->model('user_model');
+		$this->user_model->delete();
+		redirect("account/logout");
+	}
+
 	public function process()
 	{
 		if(!$this->session->userdata('validated')) {

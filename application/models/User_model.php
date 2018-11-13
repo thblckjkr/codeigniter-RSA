@@ -12,11 +12,25 @@ class User_model extends CI_Model{
 
    public function delete(){
       $this->load->database();
-      $userid = $_SESSION['user_id'];
+      $user_id = $_SESSION['user_id'];
 
       $this->db->where('user_id', $user_id);
       $query = $this->db->delete('users');
-      
+   }
+
+   public function insert(){
+      $data = array(
+         'user_nickname' => $this->input->post('user_nickname'),
+         'user_password' => password_hash($this->input->post('user_password'), PASSWORD_DEFAULT),
+         'user_name' => $this->input->post('user_name'),
+         'user_lastname' => $this->input->post('user_lastname')
+      );
+   
+      if( $this->db->insert('users', $data) ){
+         return true;
+      }
+
+      return false;
    }
 
    public function login(){
