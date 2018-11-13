@@ -10,6 +10,15 @@ class User_model extends CI_Model{
       $this->load->database();
    }
 
+   public function delete(){
+      $this->load->database();
+      $userid = $_SESSION['user_id'];
+
+      $this->db->where('user_id', $user_id);
+      $query = $this->db->delete('users');
+      
+   }
+
    public function login(){
       $this->load->database();
       // Grab user input

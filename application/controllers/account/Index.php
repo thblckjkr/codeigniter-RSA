@@ -19,6 +19,15 @@ class Index extends CI_Controller {
 		);
 
 		$this->load->template('account/main', $data);
-	}	
+	}
+	public function process()
+	{
+		if(!$this->session->userdata('validated')) {
+			redirect('account/login');
+		}
+		$this->load->model('user_model');
+		$this->user_model->delete();
+		redirect('account/login');
+	}
 }
 ?>

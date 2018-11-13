@@ -11,16 +11,38 @@ class Index extends CI_Controller {
 		if( !@$_SESSION['validated'] ){
 			redirect('account');
 		}
+		$data = array(
+			'title' => "Catalogo de claves de software"
+		);
 
-		$this->load->template('index/main');
+		$this->load->template('index/main', $data);
 	}
+
 	public function process($method){
+		$this->output->set_header('Content-Type: application/json');
 		$this->load->model('soft_model');
 
 		switch($method){
 			case "GET":
-				$data = $this->soft_model->view();
-				echo json_encode($data);
+				echo json_encode(
+					$this->soft_model->view()
+				);
+				break;
+			case "INSERT":
+				echo json_encode(
+					array("info" => $this->soft_model->insert())
+				);
+				break;
+			case "UPDATE":
+				echo json_encode(
+					array("info" => $this->soft_model->update())
+				);
+				break;
+			case "DELETE":
+				$this->soft_model->delete();
+				echo json_encode(
+					array("info" => true)
+				);
 				break;
 		}
 	}

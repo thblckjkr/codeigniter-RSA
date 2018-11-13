@@ -13,12 +13,18 @@
   <link href="<?=asset_url()?>css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Custom fonts for this template -->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css"
+  <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css"
   integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns"
-  crossorigin="anonymous">
+  crossorigin="anonymous"> -->
 
   <!-- JQuery -->
   <script src="<?=asset_url()?>js/jquery.min.js"></script>
+  
+  <!-- RSA Crypt library -->
+  <script src="<?=asset_url()?>js/jsencrypt.min.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="<?=asset_url()?>js/app.js"></script>
 
   <!-- Custom styles for this template -->
   <link href="<?=asset_url();?>css/styles.css" rel="stylesheet">

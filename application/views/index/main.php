@@ -1,21 +1,12 @@
-<script src="<?=asset_url()?>js/jsencrypt.min.js"></script>
-<link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid.min.css" />
-<link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid-theme.min.css">
- 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid.min.js"></script>
-
-
 <div class="container">
-  <h3>Catalogo de llaves de software</h3>
-  
+    <div class="row justify-content-center">
+        <h3>Catalogo de llaves de software</h3>
+    </div>
+    <div class="row">
+        <div id="catalog"></div>
+    </div>
 </div>
 <script type="text/javascript">
-var en = new encrypt();
-en.init();
-// var data = en.crypt("Hola mundo!");
-//data is avaiable for decryption in php
-
-
 $(document).ready(function(){
     $("#catalog").jsGrid({
         height: "auto",
@@ -36,35 +27,13 @@ $(document).ready(function(){
         fields: 
         [
             { name: "soft_id",visible: false},
-            { name: "soft_name", title: "Codigo de catalogo",  type: "text"},
-            { name: "soft_description", title: "Descripcion", type: "text"},
-            { name: "soft_pid", title: "Unidad", type: "text"},
-            { name: "soft_key", title: "Cantidad", type: "text"},
-            { name: "soft_notes", title: "Precio Unit.", type: "text"},
+            { name: "soft_name", title: "Software",  type: "text"},
+            { name: "soft_description", title: "Descripcion", type: "textarea"},
+            { name: "soft_pid", title: "Serial", type: "text"},
+            { name: "soft_key", title: "Llave", type: "text"},
+            { name: "soft_notes", title: "Notas", type: "textarea"},
             { type: "control" }
         ]
     });
 });
-
-catalogControler = {
-    loadData: function(filter) {
-        return $.ajax({
-            url: "/index/process",
-            dataType: "json",
-            data: filter
-        })
-    },
-    insertItem: function(data){
-        console.log("inserting", data)
-        $("#grid").jsGrid("loadData");
-    },
-    updateItem: function(data){
-        console.log("updating", data)
-    },
-    deleteItem: function(data){
-        console.log("deleting", data)
-    }
-}
-</script>
-
 </script>
