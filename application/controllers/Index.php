@@ -21,26 +21,26 @@ class Index extends CI_Controller {
 
 	public function process($method){
 		$this->output->set_header('Content-Type: application/json');
-		$this->load->model('soft_model');
+		$this->load->model('employees_model');
 
 		switch($method){
 			case "GET":
 				echo json_encode(
-					$this->soft_model->view()
+					$this->employees_model->view()
 				);
 				break;
 			case "INSERT":
 				echo json_encode(
-					array("info" => $this->soft_model->insert())
+					array("info" => $this->employees_model->insert())
 				);
 				break;
 			case "UPDATE":
 				echo json_encode(
-					array("info" => $this->soft_model->update())
+					array("info" => $this->employees_model->update())
 				);
 				break;
 			case "DELETE":
-				$this->soft_model->delete();
+				$this->employees_model->delete();
 				echo json_encode(
 					array("info" => true)
 				);

@@ -8,23 +8,23 @@ UPDATE: Imported the [jsencrypt](https://github.com/travist/jsencrypt) library t
 
 Clone the repository
 
-```
+```sh
 git clone https://github.com/thblckjkr/codeigniter-RSA.git
 ```
 
 Install composer, for the phpseclib management. It can be easely done with
 
-```
+```sh
 curl -s http://getcomposer.org/installer | php
 ./composer.phar install
 ```
 
 Maybe you'll need to enable the headers for the keys management
 
-```
+```sh
 sudo a2enmod headers
 ```
 
 ## Work
 
-The example it's a program working. But if you want, wipe out all controllers, models, and views and start from 0. The Library RSATool it's just an interface. Hope you'll find usefull
+This branch is just some homework.

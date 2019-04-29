@@ -8,11 +8,12 @@ class Soft_model extends CI_Model{
    
    public function set_new_password(){
       $this->load->database();
+      //TODO (?)
    }
 
    public function view($id = null){
       $this->load->database();
-      $this->load->library('rsatool');
+      $this->load->library('cryptool');
 		$rsat = new RSATool();
 
       if($id !== null)

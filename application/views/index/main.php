@@ -6,7 +6,7 @@
     <?php endif;?>
 
     <div class="row justify-content-center">
-        <h3>Catalogo de llaves de software</h3>
+        <h3>Lista de empleados</h3>
     </div>
     <div class="row">
         <div id="catalog"></div>
@@ -32,12 +32,9 @@ $(document).ready(function(){
     
         fields: 
         [
-            { name: "soft_id",visible: false},
-            { name: "soft_name", title: "Software",  type: "text" , validate: "required"},
-            { name: "soft_description", title: "Descripcion", type: "textarea" , validate: "required"},
-            { name: "soft_pid", title: "Asset Tag", type: "text" , validate: "required"},
-            { name: "soft_key", title: "Llave", type: "text" , validate: "required"},
-            { name: "soft_notes", title: "Notas", type: "textarea" , validate: "required"},
+            { name: "empleado_id",visible: false},
+            { name: "nombre", title: "Empleado",  type: "text" , validate: "required"},
+            { name: "puesto", title: "Puesto", type: "text" , validate: "required"},
             { type: "control" }
         ]
     });

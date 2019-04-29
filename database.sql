@@ -22,6 +22,14 @@ INSERT INTO `users` VALUES (
    'Gonzalez Calzada'
 );
 
+create table `empleados`(
+   `empleado_id` int UNSIGNED not null auto_increment,
+   `nombre` varchar (64) not null,
+   `puesto` varchar (64) not null,
+   primary key (`empleado_id`)
+) ENGINE=INNODB;
+
+
 create table `soft_keys`(
    `soft_id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
    `soft_name` VARCHAR (100) NOT NULL,

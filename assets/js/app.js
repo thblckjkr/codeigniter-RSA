@@ -3,25 +3,9 @@
  * 
  * Author: TheoGC @thblckjk
  */
-var encrypt = function(){
-   this.worker;
 
-   this.init = function(){
-      this.worker = new JSEncrypt();
-      var that = this;
-
-      $.get("/keys/publickey", function(key){
-         that.worker.setKey( key );
-		});
-   }
-   
-   this.crypt = function($data){
-	   return this.worker.encrypt( $data );
-   }
-}
-
-var en = new encrypt();
-en.init();
+// var en = new encrypt();
+// en.init();
 dataControler = {
    loadData: function(filter) {
       return $.ajax({
@@ -31,9 +15,9 @@ dataControler = {
       })
    },
    insertItem: function(data){
-      console.log("inserting", data)
-      data.soft_pid = en.crypt(data.soft_pid);
-      data.soft_key = en.crypt(data.soft_key);
+      // console.log("inserting", data)
+      // data.soft_pid = en.crypt(data.soft_pid);
+      // data.soft_key = en.crypt   (data.soft_key);
       $.ajax({
          url: "/index/process/INSERT",
          data: data,
@@ -48,9 +32,9 @@ dataControler = {
       })
    },
    updateItem: function(data){
-		console.log("updating", data)
-		data.soft_pid = en.crypt(data.soft_pid);
-		data.soft_key = en.crypt(data.soft_key);
+		// console.log("updating", data)
+		// data.soft_pid = en.crypt(data.soft_pid);
+		// data.soft_key = en.crypt(data.soft_key);
       $.ajax({
          url: "/index/process/UPDATE",
          data: data,
