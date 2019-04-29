@@ -15,7 +15,7 @@ class CrypTool {
    {
       $res = [];
       $text = strtoupper($text);
-      $text_r = str_split($text);
+      $text_r = mb_str_split($text);
 
       foreach( $text_r as $letter){
          $i = (array_search($letter, $this->alphabet) + $this->keyval) % count($this->alphabet) ;
@@ -29,7 +29,7 @@ class CrypTool {
    {
       $res = [];
       $text = strtoupper($text);
-      $text_r = str_split($text);
+      $text_r = mb_str_split($text);
 
       foreach( $text_r as $letter){
          $i = (array_search($letter, $this->alphabet) - $this->keyval);
@@ -79,4 +79,20 @@ class CrypTool {
 
       return true;
    }
+}
+
+function mb_str_split($string, $split_length = 1)
+{
+    if ($split_length == 1) {
+        return preg_split("//u", $string, -1, PREG_SPLIT_NO_EMPTY);
+    } elseif ($split_length > 1) {
+        $return_value = [];
+        $string_length = mb_strlen($string, "UTF-8");
+        for ($i = 0; $i < $string_length; $i += $split_length) {
+            $return_value[] = mb_substr($string, $i, $split_length, "UTF-8");
+        }
+        return $return_value;
+    } else {
+        return false;
+    }
 }
